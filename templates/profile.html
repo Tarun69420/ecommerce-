@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block head %}
+<style>
+
+
+    
+</style>
+{% endblock %}
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+
+
+
+
+    <div class="container">
+        <div class="profile-header">
+            <img src="https://imgs.search.brave.com/fx9T4_Ally7r9QsmdEbfrj855dLuIO_c4OmjxyCpxMI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9wcmV2/aWV3LnJlZGQuaXQv/b25lLXBpZWNlLWlj/b25zLWJ5LW1lLXYw/LXF3ZWFtOHZrYXh2/OTEuanBnP3dpZHRo/PTY0MCZjcm9wPXNt/YXJ0JmF1dG89d2Vi/cCZzPTliN2JkYzNm/OTM0YWZlNWE5MGY5/MDZkMGQ2OTRjMjZl/YTgzZmYxOTY" alt="Profile Picture">
+            <h2>{{rows.username}}</h2>
+            <p>{{rows.email}}</p>
+        </div>
+        <div class="profile-info">
+            <h3>User Information</h3>
+            <ul>
+                <li><i class="fas fa-user"></i>Username: {{rows.username}}</li>
+                <li><i class="fas fa-envelope"></i>Email: {{rows.email}}</li>
+                <li><i class="fas fa-phone"></i>Phone: {{rows.phone_number}}</li>
+                <li><i class="fas fa-map-marker-alt"></i>Address: {{rows.address}}</li>
+            </ul>
+
+        </div>
+    </div>
+
+    {% endblock %}

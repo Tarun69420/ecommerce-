@@ -1,0 +1,76 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Wishlist
+{% endblock %}
+
+{% block main %}
+    <div class="py-3 py-md-5 bg-light">
+        <h3>MY WISHLIST</h3>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="shopping-cart">
+                        {% if wishlist %}
+                            <div class="cart-header d-none d-sm-none d-mb-block d-lg-block">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h4>Products</h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h4>Price</h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h4>Remove</h4>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <h4>Move to Cart</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% for item in wishlist %}
+                                <div class="cart-item">
+                                    <div class="row">
+                                        <div class="col-md-6 my-auto">
+                                            <a href="">
+                                                <label class="product-name">
+                                                    <img src="{{ item.img_url }}" style="width: 50px; height: 50px" alt="">
+                                                    {{ item.item_name }}
+                                                </label>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-2 my-auto">
+                                            <label class="price">${{ item.item_price }}</label>
+                                        </div>
+                                        <div class="col-md-2 my-auto">
+                                            <div class="remove">
+                                                <form action="/remove_from_wishlist" method="post">
+                                                    <input type="hidden" value="{{ item.item_name }}" name="remove_from_wishlist">
+                                                    <button type="submit" class="btn btn-danger btn-sm">
+                                                        <i class="fa fa-trash"></i> Remove
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 my-auto">
+                                            <div class="move-to-cart">
+                                                <form action="/move_to_cart" method="post">
+                                                    <input type="hidden" name="product_name" value="{{ item.item_name }}" name="move_to_cart">
+                                                    <button type="submit" class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-shopping-cart"></i> Move to Cart
+                                                    </button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
